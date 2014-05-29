@@ -1,10 +1,11 @@
-NB. problem 30
-dd =. +/@:*: @: ((10 10 10 10 10) & #:)
+NB. Solution to Project Euler Question 30
 
- dd =. +/@:(5&(^~)) @: ((10 10 10 10 10) & #:)
-   dd 468
-41568
-   ddd =. =dd
-   ddd 9474
-0
-   ddd=.*=dd
+NB. fifth powers of the digits (up to 8 digit numbers)
+pwr =. (5&(^~))"0@:((10 10 10 10 10 10 10 10 10)&#:)
+sumpwr =. *(= +/@:pwr)
+NB. iterate through numbers
+itsum =.  ~.@:(sumpwr"0 @: i.)
+NB. sum
+sum =. +/itsum
+NB. -1 because we cannot count 1
+sum - 1
